@@ -2,8 +2,11 @@ name: Daily Commit
 
 on:
   schedule:
-    - cron: "00 16 * * *" # Runs daily at 02:30 UTC
+    - cron: "20 16 * * *" # Runs daily at 10:20 UTC (15:50 IST)
   workflow_dispatch: # Allows manual trigger
+
+permissions:
+  contents: write  # This allows the workflow to push commits
 
 jobs:
   commit:
@@ -13,7 +16,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Configure Git
+      - name: Configure Git (nitin.nitnav@gramener.com)
         run: |
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "nitin.nitnav@gramener.com"
